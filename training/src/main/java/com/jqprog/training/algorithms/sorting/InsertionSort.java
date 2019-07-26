@@ -2,20 +2,25 @@ package com.jqprog.training.algorithms.sorting;
 
 public class InsertionSort implements Sort {
 
-
-    @Override
-    public int[] sort(int[] numbers) {
-        return new int[0];
-    }
+    private long performedOperations;
+    private long lastExecutionTime;
 
     @Override
     public long getPerformedOperations() {
-        return 0;
+        return performedOperations;
     }
 
     @Override
     public long getLastExecutionTimeInNanos() {
-        return 0;
+        return lastExecutionTime;
     }
+
+    @Override
+    public int[] sort(int[] numbers) {
+        lastExecutionTime = 0;
+        performedOperations = 0;
+        return new int[0];
+    }
+
 
 }
