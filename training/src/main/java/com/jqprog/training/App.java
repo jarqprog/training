@@ -5,12 +5,9 @@ import com.jqprog.training.algorithms.numbersGenerator.NumbersGenerator;
 import com.jqprog.training.algorithms.numbersGenerator.SimpleNumGenerator;
 import com.jqprog.training.algorithms.sorting.BubbleSort;
 import com.jqprog.training.algorithms.sorting.InsertionSort;
+import com.jqprog.training.algorithms.sorting.QuickSort;
 import com.jqprog.training.algorithms.sorting.Sort;
 
-/**
- * Hello world!
- *
- */
 public class App {
     public static void main( String[] args ) {
         NumbersGenerator gen = new SimpleNumGenerator();
@@ -21,6 +18,10 @@ public class App {
         numbers = gen.generateNumbers(30, 1000, true);
         Sort insertion = new InsertionSort();
         performSort(numbers, insertion);
+
+        numbers = gen.generateNumbers(30, 1000, true);
+        Sort quick = new QuickSort();
+        performSort(numbers, quick);
 
 
 

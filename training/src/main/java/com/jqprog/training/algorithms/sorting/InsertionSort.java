@@ -17,9 +17,9 @@ public class InsertionSort implements Sort {
 
     @Override
     public int[] sort(int[] numbers) {
+        long startTime = System.nanoTime();
         lastExecutionTime = 0;
         performedOperations = 0;
-        long startTime = System.nanoTime();
 
         int len = numbers.length;
 

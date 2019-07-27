@@ -17,9 +17,9 @@ public class BubbleSort implements Sort {
 
     @Override
     public int[] sort(int[] numbers) {
+        long startTime = System.nanoTime();
         lastExecutionTime = 0;
         performedOperations = 0;
-        long startTime = System.nanoTime();
         int length = numbers.length;
         if (length < 2) {
             return numbers;
