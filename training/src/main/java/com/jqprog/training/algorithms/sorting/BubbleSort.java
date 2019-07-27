@@ -28,13 +28,13 @@ public class BubbleSort implements Sort {
         for (int i = 0; i < length - 1; i++) {
             boolean hasChanged = false;
             for (int j = 0; j < length - 1; j++) {
+                performedOperations++;
                 if (numbers[j] > numbers[j + 1]) {
                     int temp = numbers[j];
                     numbers[j] = numbers[j + 1];
                     numbers[j + 1] = temp;
                     hasChanged = true;
                 }
-                performedOperations++;
             }
             if (!hasChanged) {
                 break;
