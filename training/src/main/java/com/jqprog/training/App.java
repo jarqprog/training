@@ -3,28 +3,30 @@ package com.jqprog.training;
 import com.jqprog.training.algorithms.model.Numbers;
 import com.jqprog.training.algorithms.numbersGenerator.NumbersGenerator;
 import com.jqprog.training.algorithms.numbersGenerator.SimpleNumGenerator;
-import com.jqprog.training.algorithms.sorting.BubbleSort;
-import com.jqprog.training.algorithms.sorting.InsertionSort;
-import com.jqprog.training.algorithms.sorting.QuickSort;
-import com.jqprog.training.algorithms.sorting.Sort;
+import com.jqprog.training.algorithms.sorting.*;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class App {
     public static void main( String[] args ) {
+
+        List<Sort> sortingAlgorithms = Arrays.asList(
+                new BubbleSort(),
+                new InsertionSort(),
+                new QuickSort(),
+                new MergeSort());
+
         NumbersGenerator gen = new SimpleNumGenerator();
-        Numbers numbers = gen.generateNumbers(30, 1000, true);
-        Sort bubble = new BubbleSort();
-        performSort(numbers, bubble);
 
-        numbers = gen.generateNumbers(30, 1000, true);
-        Sort insertion = new InsertionSort();
-        performSort(numbers, insertion);
+        int arrayLength = 30;
+        int maximumValue = 50;
+        boolean shouldIncludeNegativeNumbers = true;
 
-        numbers = gen.generateNumbers(30, 1000, true);
-        Sort quick = new QuickSort();
-        performSort(numbers, quick);
-
-
-
+        for (Sort sortingAlgorithm : sortingAlgorithms) {
+            performSort(generateNumbers(gen, arrayLength, maximumValue, shouldIncludeNegativeNumbers),
+                    sortingAlgorithm);
+        }
     }
 
     private static void performSort(Numbers numbers, Sort sortAlgorithm) {
@@ -37,4 +39,8 @@ public class App {
         System.out.println("Array after sort: " + numbers);
     }
 
+    private static Numbers generateNumbers(NumbersGenerator numbersGenerator, int arrayLen,
+                                           int maximum, boolean includeNegative) {
+        return numbersGenerator.generateNumbers(arrayLen, maximum, includeNegative);
+    }
 }
