@@ -25,14 +25,12 @@ public class BubbleSort implements Sort {
             return numbers;
         }
 
-        for (int i = 0; i < length - 1; i++) {
+        for (int i=0; i<length-1; i++) {
             boolean hasChanged = false;
-            for (int j = 0; j < length - 1; j++) {
+            for (int j=0; j<length-1; j++) {
                 performedOperations++;
-                if (numbers[j] > numbers[j + 1]) {
-                    int temp = numbers[j];
-                    numbers[j] = numbers[j + 1];
-                    numbers[j + 1] = temp;
+                if (numbers[j] > numbers[j+1]) {
+                    swap(numbers, j, j+1);
                     hasChanged = true;
                 }
             }
@@ -42,5 +40,14 @@ public class BubbleSort implements Sort {
         }
         lastExecutionTime = System.nanoTime() - startTime;
         return numbers;
+    }
+
+    private void swap(int[] numbers, int firstIndex, int secondIndex) {
+        if (firstIndex == secondIndex) {
+            return;
+        }
+        int temp = numbers[firstIndex];
+        numbers[firstIndex] = numbers[secondIndex];
+        numbers[secondIndex] = temp;
     }
 }
