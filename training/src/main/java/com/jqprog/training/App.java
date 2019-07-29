@@ -15,19 +15,18 @@ public class App {
 
         performSearchDemo();
 
+        performSortingDemo();
+
     }
 
-
-
-
-
-
+    
     private static void performSortingDemo() {
         List<Sort> sortingAlgorithms = Arrays.asList(
                 new BubbleSort(),
                 new InsertionSort(),
                 new QuickSort(),
-                new MergeSort());
+                new MergeSort(),
+                new SelectSort());
 
         NumbersGenerator gen = new SimpleNumGenerator();
 
