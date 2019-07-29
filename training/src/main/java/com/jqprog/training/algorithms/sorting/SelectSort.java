@@ -1,6 +1,6 @@
 package com.jqprog.training.algorithms.sorting;
 
-public class BubbleSort implements Sort {
+public class SelectSort implements Sort {
 
     private long performedOperations;
     private long lastExecutionTime;
@@ -20,24 +20,18 @@ public class BubbleSort implements Sort {
         long startTime = System.nanoTime();
         lastExecutionTime = 0;
         performedOperations = 0;
-        int length = numbers.length;
-        if (length < 2) {
-            return numbers;
-        }
 
-        for (int i=0; i<length-1; i++) {
-            boolean hasChanged = false;
-            for (int j=0; j<length-1; j++) {
+        int len = numbers.length;
+
+        for (int i=0; i<len; i++ ) {
+            for (int j=i; j<len; j++) {
                 performedOperations++;
-                if (numbers[j] > numbers[j+1]) {
-                    swap(numbers, j, j+1);
-                    hasChanged = true;
+                if (numbers[j] < numbers[i]) {
+                    swap(numbers, j, i);
                 }
             }
-            if (!hasChanged) {
-                break;
-            }
         }
+
         lastExecutionTime = System.nanoTime() - startTime;
         return numbers;
     }
