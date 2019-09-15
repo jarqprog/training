@@ -19,7 +19,7 @@ public class App {
 
     }
 
-    
+
     private static void performSortingDemo() {
         List<Sort> sortingAlgorithms = Arrays.asList(
                 new BubbleSort(),
