@@ -3,6 +3,8 @@ package com.jqprog.training;
 import com.jqprog.training.algorithms.model.Numbers;
 import com.jqprog.training.algorithms.numbersGenerator.NumbersGenerator;
 import com.jqprog.training.algorithms.numbersGenerator.SimpleNumGenerator;
+import com.jqprog.training.algorithms.search.BinarySearch;
+import com.jqprog.training.algorithms.search.Search;
 import com.jqprog.training.algorithms.sorting.*;
 
 import java.util.Arrays;
@@ -11,11 +13,20 @@ import java.util.List;
 public class App {
     public static void main( String[] args ) {
 
+        performSearchDemo();
+
+        performSortingDemo();
+
+    }
+
+
+    private static void performSortingDemo() {
         List<Sort> sortingAlgorithms = Arrays.asList(
                 new BubbleSort(),
                 new InsertionSort(),
                 new QuickSort(),
-                new MergeSort());
+                new MergeSort(),
+                new SelectSort());
 
         NumbersGenerator gen = new SimpleNumGenerator();
 
@@ -27,6 +38,18 @@ public class App {
             performSort(generateNumbers(gen, arrayLength, maximumValue, shouldIncludeNegativeNumbers),
                     sortingAlgorithm);
         }
+    }
+
+    private static void performSearchDemo() {
+
+        Search search = new BinarySearch();
+
+        int numberToSearch = 3;
+
+        int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+        System.out.println(search.search(numberToSearch, numbers));
+
     }
 
     private static void performSort(Numbers numbers, Sort sortAlgorithm) {
